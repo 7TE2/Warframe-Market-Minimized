@@ -17,6 +17,7 @@ Warframe Market Minimized is a simplified and efficient tool for trading in the 
 
 3.  Start using the Warframe Market Minimized tool by entering the item name and utilizing the available features.
  4. Or use https://dataframe.rf.gd/wmm/
+
 How to Use
 ----------
 
