@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+ <title>≪ DΛTΛFRΛME ≫</title>
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel='icon' type='image/png' sizes='64x64' href='assets/favicon/favicon-64.png'>
+    <meta name="description" content="I decided that there weren't enough warframe website so I made my own"
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!--
+  d8888b.  .d8b.  d888888b  .d8b.  d88888b d8888b.  .d8b.  .88b  d88. d88888b 
+  88  `8D d8' `8b `~~88~~' d8' `8b 88'     88  `8D d8' `8b 88'YbdP`88 88'     
+  88   88 88ooo88    88    88ooo88 88ooo   88oobY' 88ooo88 88  88  88 88ooooo 
+  88   88 88~~~88    88    88~~~88 88~~~   88`8b   88~~~88 88  88  88 88~~~~~ 
+  88  .8D 88   88    88    88   88 88      88 `88. 88   88 88  88  88 88.     
+  Y8888D' YP   YP    YP    YP   YP YP      88   YD YP   YP YP  YP  YP Y88888P
+  -->
+</head>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+
+<style>
+    html {
+    overflow-x: hidden;
+        overscroll-behavior: contain;
+        cursor: url("icons/cursor.png"), auto !important;
+    }
+    
+     :root {
+    --clr-body-bg: hsl(0 0% 15%);
+    --clr-card-bg: hsl(0 0% 15%);
+    --clr-text: hsl(45, 78%, 82%);
+    --clr-heading: hsl(45, 78%, 82%);
+    --clr-border: hsl(45, 78%, 82%);
+  }
+body {
+  line-height: 1.6;
+  color: #fff;
+  background: #000;
+  font-size: 10px;
+  font-weight: 400;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    background-image: url('assets/blur.jpeg');
+
+}
+body.stop {
+  overflow: hidden;
+}
+
+#page {
+  position: relative;
+  transition: 1s all ease-in-out;
+}
+#page.menuopen {
+  opacity: 0.6;
+  filter: blur(20px);
+  transform: scale(1.2);
+}
+
+section {
+  display: flex;
+  min-height: 100vh;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  color: #fff;
+  position: relative;
+}
+section:after {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.1;
+  height: 100%;
+  width: 100%;
+}
+section h1 {
+  font-size: 120px;
+  margin: 0;
+  z-index: 2;
+  position: relative;
+}
+
+header {
+  z-index: 99999;
+  position: relative;
+}
+header #logo {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: -250px;
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 1;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+}
+header nav {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  width: 1700px;
+  margin: 0 auto;
+  top: 140px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 200px;
+  z-index: 9;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  padding: 10px 20px;
+  line-height: 1;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+}
+header nav button {
+  -webkit-appearance: none;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+  transform: scale(0);
+}
+header nav button span {
+  width: 40%;
+  background: #fff;
+  height: 2px;
+  display: block;
+  margin: 5px auto;
+  transform: scalex(0);
+  transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s margin ease-in 0s;
+}
+header nav button:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+header nav button:hover span {
+  margin: 10px auto;
+}
+
+header.sticky #logo {
+  top: 0;
+  transform: scale(0.8);
+  opacity: 0;
+  transition-delay: 0.5s;
+}
+header.sticky nav {
+  top: 20px;
+  padding: 0;
+  width: 90px;
+  height: 90px;
+  transition-delay: 1.5s;
+}
+header.sticky nav button {
+  transform: scale(1);
+  transition-delay: 0.6s;
+}
+header.sticky nav button span {
+  transform: scalex(1);
+  transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s, 0.3s margin ease-in 0s;
+}
+header.sticky nav a {
+  padding: 0;
+  opacity: 0;
+  letter-spacing: 0px;
+  transform: scale(0.3);
+  transition-delay: 0.2s;
+}
+
+#fixedlink {
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 20px;
+}
+    .card {
+  padding: 1rem;
+  background-color: var(--clr-card-bg);
+  border-block-start: 0.5rem solid;
+  border-radius: 0.5rem;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > *:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.color-picker > fieldset {
+  border: 100px;
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  height: 75px;
+  background: #fff;
+  padding: 1rem 3rem;
+  margin-inline: auto;
+  border-radius: 0 0 1rem 1rem;
+  margin-top: -30px;
+    background-color: #36393f;
+     justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px) 
+}
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: 3px solid var(--radio-color, currentColor);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#Vitruvian {
+  --radio-color: #f5e3ad;
+}
+.color-picker input[type="radio"]#Stalker {
+  --radio-color: red;
+}
+.color-picker input[type="radio"]#Corpus {
+  --radio-color: #66f3fa;
+}
+.color-picker input[type="radio"]#Infested {
+  --radio-color: #00ff00;
+}
+.color-picker input[type="radio"]#Fortuna {
+  --radio-color: #9357ec
+}
+
+.Stalker {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(45 78% 2%);
+  --clr-text: hsl(310 50% 15%);
+  --clr-heading: hsl(310 50% 15%);
+    --clr-border: hsl(353, 76%, 50%);
+}
+
+.Corpus {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text:   hsl(183, 94%, 69%);
+  --clr-heading: hsl(183, 94%, 69%);
+     --clr-border: hsl(183, 94%, 69%);
+}
+
+.Infested {
+  --clr-body-bg: hsl(109 50% 90%);
+  --clr-card-bg: hsl(109 50% 100%);
+  --clr-text: hsl(80 100% 50%);
+  --clr-heading: hsl(80 100% 50%);
+    --clr-border: hsl(80 100% 50%);
+}
+
+.Fortuna {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text:   hsl(183, 94%, 69%);
+  --clr-heading: hsl(183, 94%, 69%);
+    --clr-border: hsl(264, 80%, 64%);
+}
+
+:root:has(#Stalker:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(45 78% 2%);
+  --clr-text: hsl(353 76% 50%);
+  --clr-heading: hsl(353, 76%, 50%);
+    --clr-border: hsl(353, 76%, 50%);
+}
+
+:root:has(#Corpus:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text: hsl(183, 94%, 69%);;
+  --clr-heading: hsl(183, 94%, 69%);
+    --clr-border: hsl(183, 94%, 69%);
+}
+
+:root:has(#Infested:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 0%);
+  --clr-text: hsl(80 100% 50%);
+  --clr-heading: hsl(80 100% 50%)
+    --clr-border: hsl(80 100% 50%);
+}
+
+:root:has(#Fortuna:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text: hsl(264, 80%, 64%);
+  --clr-heading: hsl(264, 80%, 64%);
+    --clr-border: hsl(264, 80%, 64%);
+}
+
+</style>
+
+
+
+
+
+ <style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+   .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('assets/png.png') center fixed;
+        backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        background-repeat: no-repeat;
+    }
+    .content {
+        display: none; /* Hide content initially */
+    }
+
+    /* Add more styles for your content as needed */
+</style>
+  <div class="loader-wrapper">
+    <iframe class="loader" src="loader/loader.html" frameborder="0" style="height: 1080px; width: 1920px; overflow-y: hidden;" ></iframe>
+       
+                                                                                                               
+  </div>
+  <div class="content">
+      <style>
+.color-picker > fieldset {
+  border: 100px;
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  height: 50px;
+  background: #fff;
+  padding: 1rem 3rem;
+  margin-inline: auto;
+  border-radius: 0 0 1rem 1rem;
+  margin-top: -30px;
+    background-color: #36393f;
+     justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px) 
+}
+
+.color-picker input[type="radio"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: 3px solid var(--radio-color, currentColor);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.color-picker input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#Vitruvian {
+  --radio-color: #f5e3ad;
+}
+.color-picker input[type="radio"]#Stalker {
+  --radio-color: red;
+}
+.color-picker input[type="radio"]#Corpus {
+  --radio-color: #66f3fa;
+}
+.color-picker input[type="radio"]#Infested {
+  --radio-color: #00ff00;
+}
+.color-picker input[type="radio"]#Fortuna {
+  --radio-color: #9357ec
+}
+
+.Stalker {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(45 78% 2%);
+  --clr-text: hsl(310 50% 15%);
+  --clr-heading: hsl(310 50% 15%);
+    --clr-border: hsl(353, 76%, 50%);
+}
+
+.Corpus {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text:   hsl(183, 94%, 69%);
+  --clr-heading: hsl(183, 94%, 69%);
+     --clr-border: hsl(183, 94%, 69%);
+}
+
+.Infested {
+  --clr-body-bg: hsl(109 50% 90%);
+  --clr-card-bg: hsl(109 50% 100%);
+  --clr-text: hsl(80 100% 50%);
+  --clr-heading: hsl(80 100% 50%);
+    --clr-border: hsl(80 100% 50%);
+}
+
+.Fortuna {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text:   hsl(183, 94%, 69%);
+  --clr-heading: hsl(183, 94%, 69%);
+    --clr-border: hsl(264, 80%, 64%);
+}
+
+:root:has(#Stalker:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(45 78% 2%);
+  --clr-text: hsl(353 76% 50%);
+  --clr-heading: hsl(353, 76%, 50%);
+    --clr-border: hsl(353, 76%, 50%);
+}
+
+:root:has(#Corpus:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text: hsl(183, 94%, 69%);;
+  --clr-heading: hsl(183, 94%, 69%);
+    --clr-border: hsl(183, 94%, 69%);
+}
+
+:root:has(#Infested:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 0%);
+  --clr-text: hsl(80 100% 50%);
+  --clr-heading: hsl(80 100% 50%)
+    --clr-border: hsl(80 100% 50%);
+}
+
+:root:has(#Fortuna:checked) {
+  --clr-body-bg: hsl(0 0% 0%);
+  --clr-card-bg: hsl(0 0% 15%);
+  --clr-text: hsl(264, 80%, 64%);
+  --clr-heading: hsl(264, 80%, 64%);
+    --clr-border: hsl(264, 80%, 64%);
+}
+
+.ip-textbox:hover,{
+        color: var(--clr-text);
+            font-family: "Roboto", sans-serif;
+       border:  var(--clr-border);
+  width: 300px;
+}
+
+
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:500|Oswald:200&subset=cyrillic');
+
+  html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  body {
+    background: #111;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--clr-text);
+  }
+
+  input, textarea, button {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  h1, h2, h3, button {
+    text-transform: uppercase;
+
+  }
+
+  h1, h2, h3 {
+    color: var(--clr-headings);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 4px;
+      blur(20px);
+      
+  }
+
+  button {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 22px 2px 22px;
+    background: -webkit-radial-gradient(50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    background: radial-gradient(at 50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    transition: all .2s ease;
+    text-decoration: none;
+    color: var(--clr-text);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, tr, rgba(0, 0, 0, .3));
+      justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(100px);
+      border-radius: 8px;
+      border-style: groove;
+  }
+
+  button:hover {
+    color: var(--clr-text);
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 1);
+    border: 1px solid var(--clr-border);
+    border-bottom: 10px solid var(--clr-border);
+      border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.5);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, rgba(11,11,11, 7), rgba(0, 0, 0, .3));
+    font-size: 24px;
+      justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  .btnIcon {
+    padding: 5px;
+  }
+
+  .btnClose {
+    float: right;
+  }
+
+  .popupWrapper {
+    background-color: #111;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: fixed;
+  }
+
+  .popupWrapper svg {
+    height: 100vh;
+    width: auto;
+    position: fixed;
+    float: left;
+    left: 0;
+    z-index: -1;
+  }
+
+  .popupWrapper svg path {
+    stroke: var(--clr-text);
+    opacity: .2;
+  }
+
+  .wflogoPath1, .wflogoPath2, .wflogoPath3, .wflogoPath4, .wflogoPath5 {
+    stroke-dasharray: 200;
+    animation: dash 1s linear infinite;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 400;
+    }
+  }
+
+  .popupArea {
+    margin: auto 10%;
+    width: 100%;
+    height: 80%;
+    line-height: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popupNav {
+    height: 100%;
+    width: 20%;
+    float: left;
+    margin-right: 20px;
+    border-right: 1px solid rgba(160, 20, 25, .2);
+    overflow: hidden;
+  }
+
+  .popupNav ul {
+    list-style: none;
+    padding: 20px 0 0 0;
+    margin: 0;
+  }
+  .popupNav ul li, .popupArea p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5), 0 0 1em rgba(255, 0, 0, .3);
+  }
+
+  .popupNav ul li {
+    font-weight: bold;
+    display: flex;
+    line-height: 28px;
+    margin: 7px;
+    padding: 5px 0;
+    cursor: pointer;
+  }
+
+  .popupNav ul li i {
+    font-size: 28px;
+    margin: 0 7px;
+  }
+
+  .popupNav ul li:first-child, .popupNav ul li:last-child  {
+    margin: 0 7px;
+  }
+
+  .popupNav ul li:hover, .activeTab {
+    color: rgba(230, 80, 70, 1);
+    background: -webkit-radial-gradient(0% top, rgba(160, 40, 45, .2), rgba(160, 20, 25, .1));
+    background: radial-gradient(at 0% top, rgba(160, 40, 45, .2), rgba(160, 20, 25, .1));
+  }
+   .popupArea h1, .popupArea p {
+    margin-left: 20%;
+  }
+
+  .popupArea p {
+    opacity: .75;
+  }
+
+  .popupArea button:last-child {
+    margin-right: 10px;
+  }
+
+  .platformsList {
+    list-style: none;
+  }
+
+  .platformsList li {
+    display: inline-block;
+    border: 2px solid rgba(190, 50, 60, .9);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(190, 50, 60, .9);
+    padding: 5px 20px;
+    text-align: center;
+    margin: 20px 10px;
+    user-select: none;
+    opacity: .2;
+    filter: grayscale(60%);
+    transition: all .1s ease;
+  }
+
+  .platformsList li:hover, .platformsList .selected {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  .platformsList li:first-child {
+    margin: 20px 10px 20px 0;
+  }
+
+  .platformsList li svg {
+    display: block;
+    position: relative;
+    float: none;
+    height: 80px;
+    width: 80px;
+    padding: 10px 0;
+  }
+
+  .platformsList li svg path {
+    fill: none;
+    stroke: rgba(190, 50, 60, .9);
+    stroke-width: 10px;
+    opacity: 1;
+  }
+    p {
+color: var(--clr-headings);
+       backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+                  font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+        font-size: 0.5em;
+        }
+    th {
+color: var(--clr-headings);
+       backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+                  font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+        font-size: 1em;
+        text-align: center;
+        }
+    td{
+        border-top:1px solid rgba(255,255,255,0.5);
+
+   table {
+       border-color: 1px solid var(--clr-border);
+       }
+        .blurred:hover{
+            blur(20px);
+            background-color: white;
+            }
+
+
+</style>
+<body>
+  <center>
+      <div class="blurred">
+<form class="color-picker" action="">
+  <fieldset>
+    <legend class="">Pick a color scheme</legend>
+    <label for="Vitruvian" class="">Vitruvian</label>
+    <input type="radio" name="theme" id="Vitruvian" checked>
+
+    <label for="Stalker" class="">Stalker</label>
+    <input type="radio" id="Stalker" name="theme">
+    
+    <label for="Corpus" class="">Corpus</label>
+    <input type="radio" id="Corpus" name="theme">
+
+    <label for="Infested" class="">Infested</label>
+    <input type="radio" id="Infested" name="theme">
+
+    <label for="Fortuna" class="">Fortuna</label>
+    <input type="radio" id="Fortuna" name="theme">
+  </fieldset>
+</form>
+          </div>
+        
+  <header id="myHeader" class="">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+      svg {
+        font-family: "Russo One", sans-serif;
+        width: 100%; height: 100%;
+      }
+      svg text {
+        animation: stroke 7s infinite alternate;
+        stroke-width: 2;
+        stroke: #FFFFFF;
+        font-size: 50px;
+      }
+      @keyframes stroke {
+        0%   {
+          fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1);
+          stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+        }
+        70%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); }
+        80%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); stroke-width: 3; }
+        100% {
+          fill: rgba(255,255,255,1); stroke: rgba(255,255,255,0);
+          stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+        }
+      }
+
+      .wrapper {background-color: transparent};
+    </style>
+
+    <div class="wrapper">
+      <svg>
+        <text x="10%" y="50%" dy="0em" text-anchor="center">
+          DΛTΛFRΛME // A COLLECTION OF WΛRFRΛME-SPREΛDSHEETS.
+        </text>
+        
+           <text x="10%" y="100%" dy="0em" text-anchor="center">
+          ΛND OTHER TOOLS.
+        </text>
+      </svg>
+    </div>
+      
+  <nav>
+    <a href="#DreamBuilds">Dream Builds</a>
+    <a href="#WΛRFRΛMEFullList">WΛRFRΛME Full List</a>
+    <a href="#Warframe_market_prices_megasheet">Warframe_market_prices_megasheet</a>
+    <a href="#VoidRelics">Void Relics</a>
+    <a href="#DPSCalc">DPS Calc </a>
+    <a href="#Cetus">CETUS TIMETABLE </a>
+    <a href="#Earth">EARTH TIMETABLE</a>
+    <a href="#Vallis">ORB VALLIS TIMETABLE</a>
+    <a href="#Deimos">DEIMOS TIMETABLE</a>
+    <a href="#Void">VOID TRADER</a>
+    <a href="#News">WΛRFRΛME News</a>
+    <a href="#WMM">WMM</a>
+
+    <button id="openmenu">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+    
+<div id="page" class="">
+       <table>
+           <tr>
+               
+  <td><section id="future" style="">
+ <div class="container">
+            <center>    
+         <div class="table-container" id="changelogTable">
+           <button class="toggle-btn" onclick="toggleTable('changelogTable')">
+             <span class="toggle-icon"></span>Changelog</button>
+         <div class="changelog" style="font-weight: bold;
+    font-size: 16px;
+    padding: 4px 22px 2px 22px;
+    background: -webkit-radial-gradient(50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    background: radial-gradient(at 50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    transition: all .2s ease;
+    text-decoration: none;
+    color: var(--clr-text);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, tr, rgba(0, 0, 0, .3));
+      justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+      border-radius: 8px;
+      border-style: groove;
+            width: 100%;
+
+         " > <table>
+<tr>
+    <td>
+        12/15/2023 |
+    </td>
+    <td>
+Redesigned UI/UX
+    </td>
+</tr>            
+<tr>
+    <td>
+        12/10/2023 |
+    </td>
+    <td>
+Added Deimos Fass And Vome TimeTable Spreadsheet
+    </td>
+</tr>
+        <tr>
+    <td>
+        12/09/2023 |
+    </td>
+            <td>
+Added Orb Vallis Warm And Cold TimeTable Spreadsheet   
+ </td>
+</tr>     
+             <tr>
+    <td>
+        12/08/2023 |
+    </td>
+                 <td>
+        Dataframe.rf.gd was created
+    </td>
+</tr>
+        <tr>
+    <td>
+        12/07/2023 |
+    </td>
+            <td>
+        Added Changelog
+    </td>
+</tr>     
+             <tr>
+    <td>
+        12/06/2023 |
+    </td>
+                 <td>
+        Added Footer
+    </td>
+</tr>
+        <tr>
+    <td>
+        12/05/2023 |
+    </td>
+            <td>
+Added Navbar    
+            </td>
+</tr>     
+               <tr>
+    <td>
+        12/04/2023 |
+    </td>
+                 <td>
+       Added JS
+    </td>
+</tr>
+        <tr>
+    <td>
+        12/03/2023 |
+    </td>
+            <td>
+       Added CSS
+    </td>
+               <tr>
+    <td>
+        12/02/2023 |</td>
+                 <td>
+        Added Void Trader Spreadsheet 
+    </td>
+</tr>
+        <tr>
+   <td>
+        12/01/2023 |
+    </td>
+            <td>
+        Added Earth Day And Night TimeTable Spreadsheet
+    </td>
+            </tr>
+        <tr>
+    <td>
+        11/29/2023 |
+    </td>
+            <td>
+        Added Cetus Day And Night TimeTable Spreadsheet
+    </td>
+               <tr>
+    <td>
+        11/28/2023 |
+    </td>
+                 <td>
+       Added Warframe Weapons and DPS Calc Spreadsheet 
+    </td>
+</tr>
+        <tr>
+    <td>
+        11/27/2023 |
+    </td>
+            <td>
+        Added Void Relics Spreadsheet 
+    </td>
+            </tr>
+       
+        <tr>
+    <td>
+        11/24/2023 |
+    </td>
+            <td>
+       Added Warframe_market_prices_megasheet Spreadsheet
+    </td>
+            </tr>
+        <tr>
+    <td>
+        11/23/2023 |
+    </td>
+            <td>
+        Added WΛRFRΛME full list Spreadsheet
+    </td>
+               <tr>
+    <td>
+        11/22/2023 |
+    </td>
+                 <td>
+        Added Dream Builds Spreadsheet 
+    </td>
+</tr>
+       
+            
+</table>  
+            
+ </div>
+</div>
+            </center>
+  </section>
+      
+   <td><center> <section id="future" style="">
+   <div class="table-container" id="todoTable">
+       <button class="toggle-btn" onclick="toggleTable('todoTable')">
+           <span class="toggle-icon"></span>To-Do List</button>
+         <center>
+         <div class="changelog" style="font-weight: bold;
+    font-size: 16px;
+    padding: 4px 22px 2px 22px;
+    background: -webkit-radial-gradient(50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    background: radial-gradient(at 50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    transition: all .2s ease;
+    text-decoration: none;
+    color: var(--clr-text);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, tr, rgba(0, 0, 0, .3));
+      justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+      border-radius: 8px;
+      border-style: groove;
+            width: 75%;" ><table>
+<tr>
+    <td>
+        1.
+    </td>
+    <td>
+        Fix Orb Vallis Timetable ✔
+    </td>
+</tr>
+        <tr>
+    <td>
+        2.
+    </td>
+            <td>
+        Fix Deimos Timetables ✔
+    </td>
+</tr>     
+             <tr>
+    <td>
+        3.
+    </td>
+                 <td>
+        Add Blur Preloader ✔    
+    </td>
+</tr>
+        <tr>
+    <td>
+        4.
+    </td>
+            <td>
+        Fix Baro Timetable ✖
+    </td>
+</tr>     
+             <tr>
+    <td>
+        5.
+    </td>
+                 <td>
+        Split Checklist and To-Do List into side-by-side tables (nested tables) ✔
+    </td>
+</tr>
+        <tr>
+    <td>
+        6.
+    </td>
+            <td>
+        Add glow around borders ✔
+    </td>
+</tr>     
+             <tr>
+    <td>
+        7.
+    </td>
+    <td>
+        Make Preloader Infinite ✖
+    </td>
+</tr>
+                <tr>
+    <td>
+        8.
+    </td>
+    <td>
+        Add News api iframe ✔
+    </td>
+</tr
+     <tr>
+    <td>
+        9.
+    </td>
+    <td>
+        Make themes appear on hover ✖
+    </td>
+</tr>
+</table>           
+ </div>
+           </div>
+       
+  </section>
+       </center>
+           </tr>
+           <tr>
+               <style>
+                   button {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 22px 2px 22px;
+    background: -webkit-radial-gradient(50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    background: radial-gradient(at 50% bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .2));
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    transition: all .2s ease;
+    text-decoration: none;
+    color: var(--clr-text);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, tr, rgba(0, 0, 0, .3));
+      justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+      border-radius: 8px;
+      border-style: groove;
+                       text-decoration: none;
+  }
+
+  button:hover {
+    color: var(--clr-text);
+    border: 1px solid var(--clr-border);
+    border-bottom: 2px solid var(--clr-border);
+      border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.5);
+    background: -webkit-radial-gradient(50% bottom, var(-clr-body)), rgba(0, 0, 0, .3));
+    background: radial-gradient(at 50% bottom, rgba(11,11,11, 7), rgba(0, 0, 0, .3));
+    font-size: 24px;
+      justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+   transform-style: preserve-3d;
+            transform: perspective(800px);
+      text-decoration: none;
+  }
+
+  button:focus {
+    outline: none;
+  }
+                   h6 {
+    color: var(--clr-headings);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 4px;
+      blur(20px);
+                       background-color: black;
+                       color: black;
+      
+  }
+                     h6:hover {
+    color: var(--clr-headings);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 4px;
+      blur(20px);
+                       background-color: black;
+                       color: white;
+      
+               </style>
+            <tr>   
+ <td> <center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"><a name ="DreamBuilds" href="https://docs.google.com/spreadsheets/d/1_nlHRxWf-_O_O1Jtz_yId97A0rILSBuN8jamIjKjYb4/edit?usp=sharing"><button>Dream Builds Spreadsheet - Warframe</button>
+    </a></div>
+     </center>
+     <section id="DreamBuilds" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+            transform: perspective(200px);
+      "><br />
+    <center><iframe
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFD0M5piiccsbv3smI7ydmphodAtpsKBsvUplhFQUSDyr6EHukq-hr3gQyM3wPtdg4lkJ0II5LNXh8/pubhtml?widget=true&amp;headers=false"
+        width="750" height="500"></iframe> </center> 
+<h2><b>Welcome to the Warframe Dream Builds Spreadsheet!</b> This comprehensive resource is a haven for Tenno seeking to optimize their Warframe loadouts and unleash the full potential of their favorite Warframes. <br /> <hr> Whether you're a seasoned veteran or a new player, this spreadsheet is designed to inspire, guide, and assist you in crafting the perfect builds for your dream Warframe setups.
+
+</h2>
+        
+            <spoiler><h6>I was the one who made this.</h6></spoiler>
+        
+  </div>
+
+  </section>
+     </td>
+                
+ <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="WΛRFRΛMEFullList" 
+      href="https://docs.google.com/spreadsheets/d/1CIXP9ANEa0kAdcrTQIwFaKL6__yik8wBVOCS-qPPsMA/edit?usp=sharing">
+      <button>WΛRFRΛME full list</button>
+    </a></div>
+ </center>
+     <section id="WΛRFRΛMEFullList" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+            transform: perspective(200px);"> <br />
+    <center><iframe
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_EoYkdgAUHyAZoEx_c0YQ8Y4HT-kruKdKBXjHeM1cxzrffCdSSn0eqCu8fRT3WJVb9vEOnKCCfh9X/pubhtml?widget=true&amp;headers=false"
+        width="750" height="500"></iframe> </center>
+<h2><b>Complete Mod Database:</b> Dive into a vast collection of Warframe mods categorized by type, rarity, and source. <br /> <hr>
+ <b> Mastery Checklist:</b> Keep track of your mastery progress with a comprehensive checklist. Easily identify the weapons, Warframes, companions, and Archwings you've mastered.
+</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+               </td>
+               
+               </tr>
+           <tr>
+              <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="Warframe_market_prices_megasheet"
+      href="https://docs.google.com/spreadsheets/d/19EIyQRwEgzwCTjm-Ud5R_8QKVIvQn6y0Z2cQJfFzQNs/edit?usp=sharing">
+      <button>Warframe_market_prices_megasheet</button>
+    </a> </div>
+ <section id="Warframe_market_prices_megasheet" style="">
+     <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+     -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+         transform: perspective(200px);"> <br />
+    <center><iframe
+        src="https://docs.google.com/spreadsheets/d/19EIyQRwEgzwCTjm-Ud5R_8QKVIvQn6y0Z2cQJfFzQNs/edit#gid=0"
+        width="750" height="500"></iframe> </center>
+       <h2>
+        <b> Live Market Prices:</b> Stay ahead of the game with real-time market prices for Warframe items, including Prime parts, mods, and more. The Megasheet is updated regularly, ensuring you have the latest information to make informed trading decisions. <br /> <hr>
+         <b>Search and Filter Functions:</b> Use powerful search and filter functions to quickly find the information you need. Whether you're looking for the latest Prime set prices or specific rare mods, the Megasheet's intuitive interface makes data retrieval a breeze.
+       </h2>
+                     <spoiler><h6>nickemery23@gmail.com was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+     </td>
+               <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="VoidRelics"
+      href="https://docs.google.com/spreadsheets/d/1sUJ_7WDZjTnzwFj_6SZw4rfvQPVrGZdR82up7biSZyI/edit?usp=sharing">
+      <button>Void Relics</button>
+    </a> </div>
+  <section id="VoidRelics" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+     -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(200px);"> <br />
+    <center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTfvolfMOAmrErLFzybbZnDooCqrFJ66p_n4P6BtlXnEMQ3fsr_WMHmlka6LC7jMwr9j9Mn879TWUQM/pubhtml?widget=true&amp;headers=false"
+        width="750" height="500"></iframe> </center>
+<h2><b>Complete Relic Catalog:</b> Dive into an extensive catalog of Void Relics, categorized by era and refinement tier. Uncover detailed information about each relic, including the prime items they contain, rarity, and drop locations. Equip yourself with knowledge to strategically target your desired Prime gear. <br /><hr>
+
+<b>Drop Locations and Rarity:</b> Access up-to-date information on the drop locations of each relic and the rarity of prime items within. Plan your relic cracking missions with precision, increasing your chances of acquiring coveted Prime Warframes, weapons, and accessories.</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+      </td>
+               </tr>
+           <tr>
+             <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="DPSCalc"
+      href="https://docs.google.com/spreadsheets/d/1uuGCpuEMsNK6eRgv-tTrpx_yxm9RE0hHb3wZTUlKZ2s/edit?usp=sharing">
+      <button>DPS Calc</button>
+    </a> </div>
+  <section id="DPSCalc" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);    
+        backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(200px);"> <br />
+    <center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTV1TRPtFJnFU5RAwdRWnDiT4ZMMbE3ywH5Qaq_12p9FYGPT41BvRW0hSUJzeruWKqJlJ_pW67CTITO/pubhtml?widget=true&amp;headers=false"
+        width="750" height="500"></iframe> </center>
+<h2><b>Weapon and Warframe DPS Calculations:</b> Unlock the potential of your arsenal by calculating the DPS of your favorite weapons and Warframes. Understand the damage output for different builds, mod configurations, and scenarios. Fine-tune your loadouts for maximum effectiveness in any mission. <br /><hr> <b>Dynamic Damage Modeling:</b> Adapt your loadouts for various mission types with dynamic damage modeling. Tailor your weapons and Warframes to excel against specific enemy types, ensuring you're well-prepared for the challenges that await.
+
+</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+        </td>
+               <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="Cetus"
+      href="cetus/cetus.html">
+      <button>Cetus </button>
+    </a> </div>
+   <section id="Cetus" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);    
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"> <br />
+         <center><iframe src="cetus/cetus.html"
+        width="750" height="500"></iframe> </center>
+<h2><b>Day and Night Cycle Tracker:</b> Stay in sync with the day and night cycles of Cetus. Plan your activities, whether it's trading with Ostron vendors during the day or preparing for the formidable Eidolon hunts that emerge at night. <br /><hr> <b>Event Notifications:</b> Receive timely notifications for special events, such as Plague Star or Ghoul Purge, ensuring you never miss an opportunity to participate in these limited-time activities and earn unique rewards.
+
+</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+       </td>
+               </tr>
+        
+               <tr>
+                    <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);"> <a name ="Earth"
+      href="earth/earth">
+      <button>Earth </button>
+    </a> </div>
+                    <section id="Earth" style="">
+<div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    transform: perspective(100px);"> <br />
+         <center><iframe src="earth/earth.html"
+        width="750" height="500"></iframe> </center>
+    <h2><b>Day and Night Cycle Tracker:</b> Stay attuned to the natural rhythm of Earth's day and night cycles. Plan your adventures, from resource gathering during the day to nocturnal activities like Kavat hunting and exploration.<br /> <hr>
+
+<b>Conservation and Wildlife Opportunities:</b> Maximize your efforts in preserving Earth's unique flora and fauna. Utilize dedicated time slots for conservation activities and contribute to the flourishing ecosystem by capturing and preserving native species.
+
+</h2>
+                <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </div>
+  </section>
+      </td>
+                   
+               
+     <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);">       <a name ="Vallis"
+      href="vallis/vallis.html">
+      <button>Orb Vallis Warm And Cold TimeTable</button>
+    </a> </div>
+  <section id="Vallis" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"> <br />
+         <center><iframe src="vallis/vallis.html"
+        width="750" height="500"></iframe> </center>
+        <h2><b>Day and Night Cycle Tracker:</b> Stay synchronized with the alternating day and night cycles of Orb Vallis. Plan your activities, from resource gathering under the sun to uncovering the secrets of the Vallis during the mysterious nights. <br /> <hr>
+
+<b>Profit-Taker Heist Opportunities: </b> Strategically plan your encounters with the Profit-Taker Orb. Utilize dedicated time slots for Heists to maximize your chances of success and reap the rewards of taking down these formidable Corpus threats.</h2><spoiler><h6>I was the one who made this.</h6></spoiler>
+</div>  </section>
+                     
+
+      </td>
+               </tr>
+           <tr>
+              <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);">  <a name ="Deimos"
+      href="deimos/deimos.html"">
+      <button>Deimos Fass and Vome TimeTable</button>
+    </a></div>
+  <section id="Deimos" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+        backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"><br />
+         <center><iframe src="deimos/deimos.html"
+        width="750" height="500"></iframe> </center>
+        <h2><b>Day and Night Cycle Tracker:</b> Navigate the eerie cycles of day and night on Deimos. Plan your activities, from exploring the daylight horrors to uncovering the secrets of the Infested under the veil of night.<br /> <hr>
+
+<b>Isolation Vault and Cambion Drift Opportunities:</b> Strategically plan your engagements with Isolation Vaults and explore the sprawling Cambion Drift. Utilize dedicated time slots for successful excursions and uncover hidden lore and valuable rewards.
+</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </section>
+      
+               
+          <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);">   <a name ="Void"
+      href="vt/vt.html">
+      <button>Void Trader</button>
+               </a>
+                  </div>
+    <section id="Void" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"><br />
+         <center><iframe src="vt/vt.html"
+        width="750" height="500"></iframe> </center>
+        <h2><b>Void Trader Arrival and Departure Tracking:</b> Stay informed about Baro Ki'Teer's arrivals and departures. Plan your visits to the Void Trader's exotic kiosk, ensuring you never miss the opportunity to acquire rare and coveted items.<br /> <hr>
+
+<b>Countdown to Baro's Departure:</b> Receive real-time countdowns to Baro Ki'Teer's departure. Ensure you have ample time to finalize your trades, make Ducat conversions, and secure the items you desire before the Void Trader ventures back into the Void.</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+        
+  </section>
+       </td>
+      </tr>
+               <tr>
+              <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);">  <a name ="News"
+      href="news.html"">
+      <button>News</button>
+    </a></div>
+  <section id="News" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+        backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"><br />
+         <center><iframe src="news.html"
+        width="750" height="500"></iframe> </center>
+       <h2><b>Patch Notes and Updates:</b> Dive into detailed patch notes, discovering the newest features, improvements, and fixes implemented in the game.
+<br /> <hr>
+<b>In-Game Events:</b> Stay informed about limited-time events, special missions, and unique challenges that will test your skills and reward your dedication.
+</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+  </section>
+                  
+      
+               
+          <td><center><div class="container4" style="background-color: #1F1F1F; transform-style: preserve-3d;
+    transform: perspective(200px);">   <a name ="WMM"
+      href="wmm/index.html">
+      <button>Warframe Market Minimized</button>
+               </a>
+                  </div>
+    <section id="WMM" style="">
+    <div class="uframe"style="background-color: ffffff; margin: auto; width: 100%; border: 10px dashed #7289DA; padding: 10px; text-align: center; border-radius: 25px; margin-top: 3em; background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+ -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 1);
+        backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(100px);
+      border: 2px solid var(--clr-border);
+      font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;  
+        margin-left: 0px;
+         justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+        transform: perspective(100px);"><br />
+         <center><iframe src="wmm/index.html"
+        width="750" height="500"></iframe> </center>
+        <h2><b>Explore Warframe Market Minimized:</b> your go-to hub for streamlined trading in the world of Warframe. Simplify your transactions, connect with fellow players, and find the best deals on prime parts, mods, and more. Maximize your efficiency with an intuitive interface designed for swift and hassle-free trading.<br /> <hr>
+
+<b>Dive into the convenience of Warframe Market Minimized:</b> where trading becomes effortless. Discover a compact platform tailored for Warframe enthusiasts seeking a seamless exchange experience. Whether you're buying or selling, this user-friendly marketplace is your key to efficient and smooth transactions within the Warframe universe.</h2>
+                    <spoiler><h6>I was the one who made this.</h6></spoiler>
+
+        
+  
+    </div>
+      </center>
+  </td>
+                  </center>
+                  </td>
+                   </tr>
+           </table>
+    </div>
+      </center>
+    </body>
+     
+
+    
+
+    <center>
+    <footer>
+        <h3>Copyright © 2023-2024 7TE. All rights reserved. </h3>
+        <br />
+    <h3>    Other Warframe related websites:</h3>
+      <hr />
+<br />
+        <a href="https://tenno.tools" > <button> <img src="assets/tennotools.png">Tenno.Tools</button></a>
+         <a href="https://warframe,market" > <button> <img src="assets/warframemarket.png">Warframe.Market</button></a>
+        <a href="https://overframe.gg" > <button><img src="assets/overframegg.png">Overframe.gg</button></a>
+         <a href="https://riven.market" > <button> <img src="assets/rivenmarket.png">Riven.Market</button></a>
+      <a href="https:/darkwarframedrops.com" > <button> <img src="assets/warframedrops.png">warframe.drops.</button></a>
+
+    </footer>
+        
+        </center>
+     <script src="https://kit.fontawesome.com/bad7f7f5d4.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+      <script id="rendered-js" >
+document.addEventListener('DOMContentLoaded', function() {
+    var header = document.getElementById('myHeader');
+    var page = document.getElementById('page');
+    var openMenuButton = document.getElementById('openmenu');
+
+    window.addEventListener('scroll', function() {
+        page.classList.remove('menuopen');
+        if (window.scrollY >= 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+
+    // Event listener to remove the sticky class when the button is clicked
+    openMenuButton.addEventListener('click', function() {
+        header.classList.remove('sticky');
+        page.classList.add('menuopen');
+    });
+
+  var links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            // Prevent the default action
+            event.preventDefault();
+
+            // Get the target element
+            var targetId = this.getAttribute('href');
+            var targetElement = document.querySelector(targetId);
+
+            // Smooth scroll to target
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+    </script>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Simulate content loading delay (you can replace this with your actual loading logic)
+            setTimeout(function () {
+                // Remove loader and display content
+                document.querySelector('.loader-wrapper').style.display = 'none';
+                document.querySelector('.content').style.display = 'block';
+            }, 30000); // Adjust the delay as needed
+        });
+
+      </script>
+    <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".randomSentence-textbox"), {
+    max: 25,
+        speed: 400,
+        easing:"cubic-bezier(.03,.98,.52,.99)",
+        perspective:500,
+        transition:true
+    });
+    </script>
+          <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".randomPerson-textbox"), {
+    max: 25,
+        speed: 400,
+        easing:"cubic-bezier(.03,.98,.52,.99)",
+        perspective:500,
+        transition:true
+    });
+    </script>
+   <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".colorpicker"), {
+    max: 25,
+        speed: 400,
+        easing:"cubic-bezier(.03,.98,.52,.99)",
+        perspective:500,
+        transition:true
+    });
+    </script>
+          <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".fieldset"), {
+    max: 25,
+        speed: 400,
+        easing:"cubic-bezier(.03,.98,.52,.99)",
+        perspective:500,
+        transition:true
+    });
+    </script>
+          <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".button"), {
+    max: 25,
+        speed: 400,
+        easing:"cubic-bezier(.03,.98,.52,.99)",
+        perspective:500,
+        transition:true
+    });
+    </script>
+         <script id="rendered-js" >
+VanillaTilt.init(document.querySelectorAll(".uframe"), {
+    max: 25,
+        speed: 200,
+        easing:"cubic-bezier(.01,.98,.52,.99)",
+        perspective:2000,
+        transition:true
+    });
+    </script>
+       
+        <script>
+      function toggleTable(tableId) {
+          const table = document.getElementById(tableId);
+          const button = table.querySelector('.toggle-btn');
+          const icon = button.querySelector('.toggle-icon');
+          const tableDisplay = table.style.display;
+
+          table.style.display = tableDisplay === 'none' || tableDisplay === '' ? 'table' : 'none';
+          icon.innerHTML = tableDisplay === 'none' || tableDisplay === '' ? '❌' : '❌';
+      }
+  </script>
+
+
+
+
+</html>
