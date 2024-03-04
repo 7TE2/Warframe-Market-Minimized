@@ -1,0 +1,797 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@300;600&display=swap");
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]){
+        --primary: #43A047;
+        --primary-hover: #4CAF50;
+        --primary-focus: rgba(67,160,71,0.25);
+        --primary-inverse: #FFF;
+    --clr-body-bg: #10181e;
+    --clr-card-bg: hsl(0 0% 15%);
+    --clr-light-text: hsl(0°, 0%, 100%);
+      --clr-dark-text: hsl(0°, 0%, 0%);
+    --clr-heading: hsl(45, 78%, 82%);
+    --clr-border: hsl(0°, 0%, 20%);
+    --clr-alert-text: #fff;
+    }
+}
+@media only screen and (prefers-color-scheme: light) {
+
+    :root:not([data-theme="dark"]){
+          --clr-body-bg: #fefefe;
+    --clr-card-bg: hsl(0 0% 15%);
+    --clr-light-text: hsl(0°, 0%, 100%);
+      --clr-dark-text: hsl(0°, 0%, 0%);
+    --clr-heading: hsl(45, 78%, 82%);
+    --clr-border: hsl(0°, 0%, 20%);
+    --clr-alert-text: #000;
+
+    #itemName:not(:focus) {
+    padding: 8px;
+    margin-right: 8px;
+    color: black; /* Set text color to white */
+    transition: 1.5s ease;
+    width: 100%;
+    background-color: #cbcbcb;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+
+}
+        
+#itemName:focus {
+    padding: 8px;
+    margin-right: 8px;
+    color: black; /* Set text color to white */
+    transition: 1.5s ease;
+    width: 50%;
+    background-color: #cbcbcb;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+
+}    .drop-sources-table th {
+    background-color: #cdcdcd;
+}
+    }
+}
+
+
+html{
+    scroll-behavior: smooth;
+    }
+body {
+    background-color: var( --clr-body-bg);
+    backdrop-filter: blur(20px);
+
+    color: white;
+     font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    scroll-behavior: smooth;
+}
+ body::-webkit-scrollbar {
+        width: 0.25rem;
+    }
+        body::-webkit-scrollbar-track {
+        background: #1E1E24;
+    }
+        body::-webkit-scrollbar-thumb {
+        background: #1095C1;
+    }
+ body::-webkit-scrollbar:hover {
+        width: 1rem;
+    }
+        body::-webkit-scrollbar-track:hover {
+        background: #1E1E24;
+    }
+        body::-webkit-scrollbar-thumb:hover {
+        background: #1095C1;
+    }
+.container {
+    text-align: center;
+    width: 100%;
+}
+
+.columns-container {d
+    display: flex;
+    justify-content: space-around;
+}
+
+.columns-container > div {
+    flex: 1;
+}
+
+h1 {
+    color: #0bec7c;
+    font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+
+
+}
+
+label {
+    margin-right: 10px;
+    color: white; /* Set text color to white */
+}
+
+#itemName:not(:focus) {
+    padding: 8px;
+    margin-right: 8px;
+    color: white; /* Set text color to white */
+    transition: 1.5s ease;
+    width: 100%;
+    background-color: #1f1f1f;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+
+}
+#itemName:focus {
+    padding: 8px;
+    margin-right: 8px;
+    color: white; /* Set text color to white */
+    transition: 1.5s ease;
+    width: 50%;
+    background-color: #1f1f1f;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+
+}
+
+
+button {
+    padding: 8px;
+    background-color: #2b973b;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #2b973b;
+    border-radius: 8px;
+
+
+}
+button:hover {
+    transition: -100s
+    padding: 8px;
+    background-color: #19b3e6;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border: 2px solid #19b3e6;
+    border-radius: 8px;
+    
+}
+
+
+#priceResult {
+    color: white; /* Set text color to white */
+    height: auto;
+}
+
+/* New CSS for invisible bullets and horizontal line */
+#priceResult ul {
+    list-style: none;
+    padding: 0;
+}
+
+#priceResult li {
+    border-bottom: 1px solid #555; /* Horizontal line color */
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+#statisticsResult {
+    color: white; /* Set text color to white */
+    height: auto;
+}
+
+/* New CSS for invisible bullets and horizontal line */
+#statisticsResultt ul {
+    list-style: none;
+    padding: 0;
+}
+
+#statisticsResultt li {
+    border-bottom: 1px solid #555; /* Horizontal line color */
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+
+.price-result-item {
+    margin-top: 10px;
+}
+
+/* Styles for displaying orders */
+.orders-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.buy-orders,
+.sell-orders {
+    flex: 1;
+}
+
+.order-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item {
+    border: 1px solid #4fd355;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #333;
+}
+
+.order-item p {
+    margin: 5px 0;
+    color: white;
+    font-size: 14px;
+}
+
+/* Styles for buy and sell columns */
+.buy-orders {
+    order: 2;
+}
+
+.sell-orders {
+    order: 1;
+}
+
+/* Add a little space between columns */
+.orders-container > div {
+    margin: 0 10px;
+}
+
+/* Additional Styles for Columns */
+.columns-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.column {
+    flex: 1;
+    margin: 10px; /* Add margin to columns for spacing */
+    padding: 15px; /* Add padding for better spacing */
+    background-color: #333; /* Dark background color for columns */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+.column-header {
+    color: #4CAF50;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.column-content {
+    color: white;
+    font-size: 16px;
+}
+/* Styles for Sort By and Filter By */
+#sortBy, #statusFilter, #checkPriceBtn, #showDropSourcesBtn, #checkStatisticsBtn {
+    font-family: 'Orbitron', sans-serif;
+    width: auto;
+      font-weight: 900;
+}
+
+#platform {
+    font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.filter-container > div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+select {
+    padding: 8px;
+    color: black;
+    background-color: #4fd355;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style checkboxes using the label */
+/** input[type="checkbox"] {
+    display: none;
+}
+ 
+input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #4fd355;
+    color: #333;
+}
+input[type="checkbox"]:hover {
+    display: none;
+    border: 5px solid #333;
+    border-radius: 8px;
+
+
+}
+
+input[type="checkbox"]:hover + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #4fd355;
+    border: 1px solid #4fd355;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    border: 5px solid #4fd355;
+    border-radius: 8px;
+
+
+}
+
+input[type="checkbox"]:checked:hover + label {
+    background-color: #333;
+    color: #fff;
+    border: 5px solid #333;
+    border-radius: 8px;
+
+
+}
+
+
+/* Add this to your style.css file */
+
+.plat-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.plat-filter div {
+    flex: 1;
+}
+
+.plat-filter label {
+    color: white;
+    margin-right: 5px;
+}
+
+.plat-filter input {
+    padding: 5px;
+}
+/* Add this to your style.css file */
+#jsonResult {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #4CAF50;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    overflow-y: scroll;
+}
+
+#jsonResult > div {
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+}
+.drop-sources-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.drop-sources-table th, .drop-sources-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.drop-sources-table th {
+    background-color: #333;
+}
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  color: white; /* Set the initial color */
+}
+
+#moonIcon {
+    margin-right: 100px;
+  display: inline-block;
+}
+
+#sunIcon {
+  display: none;
+}
+#info-circle {
+  display: inline-block;
+}
+
+.light-theme #sunIcon {
+  display: inline-block;
+}
+
+.light-theme #moonIcon {
+  display: none;
+}
+
+/* Dark theme styles */
+body {
+  color: white;
+    overflow-x: hidden;
+}
+
+/* Light theme styles */
+body.light-theme {
+  background-color: white;
+  color: black;
+  overflow-x: hidden;
+}
+body.dark-theme {
+  background-color: var( --clr-body-bg);
+  color: white;
+      overflow-x: hidden;
+}
+
+.dark-theme label {
+  color: white;
+}
+
+.dark-theme select {
+  color: black;
+  background-color: #4fd355;
+  border: none;
+  cursor: pointer;
+}
+
+/* Light theme styles */
+body.light-theme {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+.light-theme label {
+  color: black;
+}
+
+.light-theme select {
+  color: white;
+  background-color: var(--clr-body-bg);
+  border: none;
+  cursor: pointer;
+}
+/**
+.dark-theme input[type="checkbox"] {
+    display: none;
+}
+
+
+.dark-theme input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.dark-theme input[type="checkbox"]:checked + label {
+    background-color: #4fd355;
+    color: #333;
+}
+.dark-theme input[type="checkbox"]:hover {
+    display: none;
+    border: 5px solid #333;
+    border-radius: 8px;
+
+
+}
+
+.dark-theme input[type="checkbox"]:hover + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #4fd355;
+    border: 1px solid #4fd355;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    border: 5px solid #4fd355;
+    border-radius: 8px;
+
+
+}
+
+.dark-theme input[type="checkbox"]:checked:hover + label {
+    background-color: #333;
+    color: #fff;
+    border: 5px solid #333;
+    border-radius: 8px;
+
+
+}
+.light-theme input[type="checkbox"] {
+    display: none;
+}
+
+.light-theme input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #d3d3d3;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+}
+
+.light-theme input[type="checkbox"]:checked + label {
+    background-color: #4fd355;
+    color: #d3d3d3;
+}
+.light-theme input[type="checkbox"]:hover {
+    display: none;
+    border: 5px solid #d3d3d3;
+    border-radius: 8px;
+
+
+}
+
+.light-theme input[type="checkbox"]:hover + label {
+    display: inline-block;
+    padding: 8px;
+    margin: 0 5px;
+    background-color: #4fd355;
+    border: 1px solid #4fd355;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    border: 5px solid #4fd355;
+    border-radius: 8px;
+
+
+}
+
+.light-theme input[type="checkbox"]:checked:hover + label {
+    background-color: #d3d3d3;
+    color: #fff;
+    border: 5px solid #d3d3d3;
+    border-radius: 8px;
+
+
+}
+.dark-theme #priceResult {
+    color: white; /* Set text color to white */
+}
+
+/* New CSS for invisible bullets and horizontal line */
+.dark-theme #priceResult ul {
+    list-style: none;
+    padding: 0;
+
+}
+.dark-theme #priceResult ul::first-letter {
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+
+}
+
+.dark-theme #priceResult li::first-letter {
+    border-bottom: 1px solid #555; /* Horizontal line color */
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+.light-theme #priceResult {
+    color: black; /* Set text color to white */
+}
+
+/* New CSS for invisible bullets and horizontal line */
+.light-theme #priceResult ul::first-letter {
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.lighttheme #priceResult li::first-letter {
+    border-bottom: 1px solid #555; /* Horizontal line color */
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+.dark-theme .drop-sources-table th {
+    background-color: #ccc;
+}
+.light-theme .drop-sources-table th {
+    background-color: #d3d3d3;
+}
+/*
+.dark-theme #itemName { 
+    padding: 8px;
+    margin-right: 8px;
+    color: white; 
+    border: 3px solid #4fd355;
+    width: 20%;
+    background-color: #1f1f1f;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif; 
+
+
+}
+.dark-theme #itemName:focus {
+    padding: 8px;
+    margin-right: 8px;
+    color: white; 
+    border: 3px solid #4fd355;
+    width: 30%;
+    background-color: #1f1f1f;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+
+
+}
+.light-theme #itemName {
+    padding: 8px;
+    margin-right: 8px;
+    color: black;
+    border: 3px solid #4fd355;
+    width: 20%;
+    background-color: #ccc;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+
+
+}
+.light-theme #itemName:focus {
+    padding: 8px;
+    margin-right: 8px;
+    color: black;
+    border: 3px solid #4fd355;
+    width: 30%;
+    background-color: #ccc;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+
+
+} */
+.dark-theme h1,h2,h3,h4,h5 {
+    color: var(--clr-light-text);
+    }
+.light-theme h1,h2,h3,h4,h5 {
+    color: var(--clr-dark-text);
+    }
+.dark-theme tr {
+    background-color: transparent;
+    color: transparent;
+    border: 0px;
+    }
+.light-theme tr {
+    background-color: transparent;
+    color: transparent;
+    border: 0px;
+    }
+#text {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin: 100px;
+justify-content: center;
+align-items: center;
+}
+#text:has(.fancy:hover) .sentence:not(.fancy:hover){
+    filter: blur(20px);
+    transition: 0.5s;
+}
+   article{
+    padding: 500px;
+   }
+
+.dark-theme select{
+    color: var(--clr-light-text);
+    border: #374956;
+
+}
+ .light-theme select{
+    color: var(--clr-dark-text);
+     border: #374956;
+}       
+      
+
+.table-btn {
+    padding: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 5px; /* Add some bottom margin for spacing */
+}
+
+.table-btn:hover {
+    padding: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border: 5px solid #333;
+    border-radius: 8px;
+}
+input[type=search] {
+    width: 100%;
+}
+input[type=search]:focus {
+    width: 50%;
+}
+
+        .alertify .ajs-dialog{
+            border-radius: 8px;
+position:relative;
+margin:5% auto;
+min-height:110px;
+max-width:500px;
+padding:24px 24px 0 24px;
+outline:0;
+color: var(--clr-alert-text);
+background-color: var(--clr-body-bg);
+box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
+
+}
+.alertify .ajs-header{
+margin:-24px;
+margin-bottom:0;
+padding:16px 24px;
+color: var(--clr-alert-text);
+background-color: var(--clr-body-bg);
+}
+        .alertify .ajs-footer{
+padding:4px;
+margin-left:-24px;
+margin-right:-24px;
+min-height:43px;
+color: var(--clr-alert-text);
+background-color: var(--clr-body-bg);
+}
+        .alertify .ajs-dimmer{
+position:fixed;
+z-index:1981;
+top:0;
+right:0;
+bottom:0;
+left:0;
+padding:0;
+margin:0;
+background-color:#000;
+            opacity: 0.5;
+filter: blur(20px);
+}

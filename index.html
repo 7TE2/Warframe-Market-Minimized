@@ -1,0 +1,178 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+  <title>Warframe.market Minimized</title>
+  <meta name="title" content="Warframe.market Minimized 📈" />
+  <meta name="description" content="Warframe.market Minimized is a open source, simplified, and efficient tool using the Warframe Market API and Warframe Hub API for trading and getting the current drop sources for any item in the popular online game Warframe. Learn how to make the most out of trading and earn platinum, the in-game currency." />
+  <link rel="icon" type="image/png" href="favicon/logo2.png" sizes="64x64">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dataframe.rf.gd/wmm/" />
+  <meta property="og:title" content="Warframe.market Minimized 📈" />
+  <meta property="og:description" content="Warframe.market Minimized is a open source, simplified, and efficient tool using the Warframe Market API and Warframe Hub API for trading and getting the current drop sources for any item in the popular online game Warframe. Learn how to make the most out of trading and earn platinum, the in-game currency." />
+  <meta property="og:image" content="favicon/logo2.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://dataframe.rf.gd/wmm/" />
+  <meta property="twitter:title" content="Warframe.market Minimized 📈" />
+  <meta property="twitter:description" content="Warframe.market Minimized is a open source, simplified, and efficient tool using the Warframe Market API and Warframe Hub API for trading and getting the current drop sources for any item in the popular online game Warframe. Learn how to make the most out of trading and earn platinum, the in-game currency." />
+  <meta property="twitter:image" content="favicon/logo2.png" />
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="style.css">
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+<link href="https://jsdeilvr.net/npm/boostrap/@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVw2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <script src="https://kit.fontawesome.com/9e2e4b2526.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <style>
+      
+        </style>
+<!--
+<style>
+     .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        background-repeat: no-repeat;
+    }
+    .content {
+        display: none; /* Hide content initially */
+    }
+
+    /* Add more styles for your content as needed */
+</style> 
+  <div class="loader-wrapper">
+    <iframe class="loader" src="cool-ass-loader/index.html" frameborder="0" style=" margin-top: 800px;height: 1080px; width: 1920px; overflow-y: hidden;" ></iframe>
+       
+                                                                                                               
+  </div>
+  <div class="content">
+    -->
+
+  <div class="container" style="">
+        <div style="display: inline">
+        
+        <h1 style="font-family: 'Orbitron', sans-serif;
+  font-weight: 900;">Warframe Market Minimized </h1>
+      </div>
+        <h3><a href="https://warframe.market" style="text-decoration: none;">WFM orders</a> | <a href="https:/darkwarframedrops.com" style="text-decoration: none;">WFS droptables</a></h3>
+   <div class="grid">
+     
+      <div id="text">
+      <article style="margin-right: 50px;"><h6 class="sentence fancy">Drop Sources is curenntly <u> working.</u></h6></article>
+      <article><h6 class="sentence fancy"> No ads and faster than the official WFM site!</h6>    </article>
+     <article style="margin-left: 50px;"><h6 class="sentence fancy">Platforms Sorting is curenntly <u> working</u>  </h6></article>
+      </div>
+       
+       </div>
+      <button data-tooltip="How to use? 1. First type into the textbox the item/mod you want to buy/sell. 2. Click Buy Orders or Sell Orders 3. Click Check Price or Show Drop Sources" data-placement="bottom" style=""><i class="fa fa-info-circle fa-2x" id="info-circle"></i></button>
+      <table>
+          <center>
+          <tr>
+              <td>
+        
+<label for="itemName" style="font-weight: 700; width: 100%;"> <center>Enter Item Name:</center></label>
+                  </td>
+              </tr>
+                  <tr style="bordercolor: red">
+              <td>
+                  <center>
+        <input type="search" name="search" id="itemName" autocomplete="off" placeholder="e.g., Serration, Wisp Prime, Orokin Derelict, Pluto." >
+            </center>
+      </td>
+              </tr>
+              
+          <tr>
+<td style="width: auto;">
+    <div class="grid">
+        <button onclick="checkPrice()" id="checkPriceBtn" style="">Check Price</button>
+        <button onclick="fetchStatistics('serration')" id="checkStatisticsBtn">Get Statistics</button>
+      <button onclick="showDropSources()" id="showDropSourcesBtn" style="">Show Drop Sources</button>
+</div>               
+</td>
+    
+       </tr>
+      </table>
+
+        <div class="filter-container">
+            <div class="sort-container">
+                <label>Sort By:</label>
+                <select id="sortBy">
+                    <option value="platinumAsc">Lowest Price</option>
+                    <option value="platinumDesc">Highest Price</option>
+                    <option value="rankAsc">Rank (Ascending)</option>
+                    <option value="rankDesc">Rank (Descending)</option>
+                </select>
+                <label for="platform">Select Platform:</label>
+<select id="platformDropdown" style="font-family: 'Orbitron', sans-serif; width: 39%;">
+    <option value="pc">PC</option>
+    <option value="ps4">PS4</option>
+    <option value="xbox">Xbox</option>
+    <option value="switch">Switch</option>
+</select>
+            </div>
+            <div class="filter-options" style="font-family: 'Orbitron', sans-serif; font-weight: 700;" >
+                <label>Filter By:</label>
+                <input type="checkbox" id="buyOrders">
+<label for="buyOrders">WTB Orders</label>
+
+<input type="checkbox" id="sellOrders">
+<label for="sellOrders">WTS Orders</label>
+
+<input type="checkbox" id="ingameOnly">
+<label for="ingameOnly">Online Only</label>
+                
+            </div>
+            
+        </div>
+    
+            <div class="grid">
+        <div id="priceResult"></div>
+        <div id="statistics-container"></div>
+
+
+        <div id="dropSourcesContainer" style="display: none;">
+            <textarea id="jsonResult" readonly style="margin: auto; "></textarea>
+        </div>
+      <div id="dropSources"></div>
+                
+            </div>
+    
+     <!-- </div> -->
+    
+
+    <script src="script.js"></script>
+<script>
+  function toggleTheme() {
+    var body = document.body;
+    body.classList.toggle('light-theme');
+  }
+</script>
+
+      <script src="https://cdn.jsdelivr.net/npm/boostrap@5.01/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISKJkNUaaKMoLD0//ElJ19smozuHV6z3Ieehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"> </script>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@latest"></script>
+
+</html>
+
+
+
